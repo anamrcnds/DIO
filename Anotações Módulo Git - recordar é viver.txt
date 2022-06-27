@@ -158,5 +158,8 @@ $ git remote add origin https://github.com/username/primeiro-repositorio.git ---
 Sobe o commit novo pro repositorio remoto
 git push origin master
 
+### MODIFICANDO ORIGIN JÁ CONFIGURADO ###
+git remote set-url origin git@github.com:gitusername/repository.git
 
-
+### EXIBINDO REMOTE ORIGIN ATUAL ###
+git remote show origin
