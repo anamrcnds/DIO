@@ -41,7 +41,7 @@ Informando a chave pública, o GitHub
 vai reconhecer a máquina atraves de sua assinatura conexão prévia,
 o que configura a maquina eliminando uso da senha.
 
-A chave ssh fica em settings, no meno "ssh e GPG keys", 
+A chave ssh fica em settings, no menu "ssh e GPG keys", 
 para inserir esta chave no GitHub deve-se criar primeiramente
 a chave no GitBash através dos seguintes comandos:
 
