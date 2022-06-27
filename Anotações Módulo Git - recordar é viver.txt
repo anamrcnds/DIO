@@ -37,10 +37,9 @@ CHAVE SSH - forma de estabelecer uma conexão segura e
 encriptada entre duas máquinas. Estabelecendo uma conexão 
 segura onde a nossa máquina local torna-se confiável.
 Há sempre uma chave pública e uma chave privada. 
-Informando a chave pública para o GitHub, o GitHub 
-vai reconhecer a máquina atraves de sua assinatura através deu 
-uma conexão prévia, o que configura a maquina e não 
-exige sequer senha. 
+Informando a chave pública, o GitHub 
+vai reconhecer a máquina atraves de sua assinatura conexão prévia,
+o que configura a maquina eliminando uso da senha.
 
 A chave ssh fica em settings, no meno "ssh e GPG keys", 
 para inserir esta chave no GitHub deve-se criar primeiramente
@@ -121,7 +120,7 @@ Arquivo Markdown - baseado nas tags de título HTML
 
 
 
-### CICLO DE VIDA DOS ARQUIVOS ###
+### CICLO DE VIDA DOS ARQUIVOS ### (Stack Overflow)
 
 untracked: o git não sabe nada a respeito do arquivo. Quer dizer, até sabe que ele existe,
            mas não vai controlar seu ciclo de vida
@@ -150,13 +149,8 @@ git status - mostra se há arquivos na staging area ou se os arquivos sofrerem m
 			 relativas ao último commit 
 
 
-
 ### APONTANDO PARA REPOSITÓRIO REMOTO ###
-
 $ git remote add origin https://github.com/username/primeiro-repositorio.git --->> repositório criado no GitHub
-
-Sobe o commit novo pro repositorio remoto
-git push origin master
 
 ### SUBINDO ARQUIVOS ##
 git push origin master
