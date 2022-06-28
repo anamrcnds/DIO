@@ -1,3 +1,3 @@
-### Bootcamp DIO - Spread Fullstack Developer
+### Bootcamps/cursos - Digital Innovation One
 
-Anotações, atividades e desafios propostos. 
+Anotações, atividades, desafios propostos. 
