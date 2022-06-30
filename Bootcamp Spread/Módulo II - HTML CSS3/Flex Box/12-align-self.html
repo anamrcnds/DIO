@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet"> 
+    <title>Fundamentos - align self</title>
+
+<style>
+    .flex-container{
+        max-width: 350px;
+        border: 1px solid;
+        margin: 10px;
+        display: flex;
+        /* align-items: center; */
+    }
+
+    body{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    p, h1{
+        font-family: 'Caveat', cursive;
+        font-size: 30px;
+    }
+
+    .align-container{
+        align-items: center;
+    }
+
+    .item {
+        background-color: deepskyblue;
+        color: white;
+        font-size: 24px;
+        text-align: center;
+        margin: 5px;
+    }
+
+    .section-container{
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        /* align-content: space-around; */
+    }
+
+    .item-section{
+        /* margin-right: px; */
+        border-right: 3px dotted black;
+        padding: 50px;
+        margin: 20px;
+    }
+
+    .center{
+        align-self: center;
+    }
+
+    .start{
+        align-self: flex-start;
+    }
+
+    .end{
+        align-self: flex-end;
+    }
+
+    .baseline{
+        align-self: baseline;
+    }
+
+    .strech{
+        align-self: stretch;
+    }
+
+    .auto{
+        align-self: auto;
+    }
+
+    .direction{
+        flex-direction: column;
+    }
+</style>
+
+</head>
+<body>
+    <div>
+        <h1> ~~~~~ ROW ~~~~~~ </h1>
+        <section class="section-container">
+            <div class="item-section">
+                <p>align-self: auto</p>
+                <section class="flex-container align-container">
+                    <div class="item auto">AAA</div>
+                    <div class="item auto">123</div>
+                    <div class="item auto">Lorem ipsum is therefore always free drom repetition</div>
+                    <div class="item auto">ITEM 4</div>
+                </section>
+            </div>
+
+            <div class="item-section">
+                <p>align-self: stretch</p>
+                <section class="flex-container">
+                    <div class="item center">AAA</div>
+                    <div class="item start">123</div>
+                    <div class="item stretch">Lorem ipsum is therefore always free drom repetition</div>
+                    <div class="item end">ITEM 4</div>
+                </section>
+            </div>
+
+            <div class="item-section">
+                <p>align-self: stretch</p>
+                <section class="flex-container">
+                    <div class="item center">AAA</div>
+                    <div class="item start">AAA</div>
+                    <div class="item end">AAA</div>
+                    <div class="item strech">Lorem ipsum is therefore always free drom repetition</div>
+                </section>
+            </div>
+        </section>
+    </div>
+    
+    <div>
+        <h1> ~~~~~ COLUMN ~~~~~~ </h1>
+        <section class="section-container">
+            <div class="item-section">
+            
+                <p>align-self: auto</p>
+                <section class="flex-container align-container direction">
+                    <div class="item auto">AAA</div>
+                    <div class="item auto">123</div>
+                    <div class="item auto">Lorem ipsum is therefore always free drom repetition</div>
+                    <div class="item auto">ITEM 4</div>
+                </section>
+            </div>
+
+            <div class="item-section">
+                <p>align-self: stretch</p>
+                <section class="flex-container direction">
+                    <div class="item center">AAA</div>
+                    <div class="item start">123</div>
+                    <div class="item stretch">Lorem ipsum is therefore always free drom repetition</div>
+                    <div class="item end">ITEM 4</div>
+                </section>
+            </div>
+
+            <div class="item-section">
+                <p>align-self: stretch</p>
+                <section class="flex-container direction">
+                    <div class="item center">AAA</div>
+                    <div class="item start">AAA</div>
+                    <div class="item end">AAA</div>
+                    <div class="item strech">Lorem ipsum is therefore always free drom repetition</div>
+                </section>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
