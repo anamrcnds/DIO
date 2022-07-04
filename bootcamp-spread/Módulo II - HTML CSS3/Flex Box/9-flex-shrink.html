@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet"> 
+    <title>Fundamentos - flex shrink</title>
+
+    <style>
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        p {
+            font-family: 'Caveat', cursive;
+            font-size: 30px;
+        }
+
+        .flex-container{
+            display: flex;
+            border: 1px solid black;
+            max-width: 400px;
+            margin-bottom: 10px;
+        }
+
+        .items{
+            margin: 5px;
+            background-color: orangered;
+            font-size: 24px;
+            text-align: center;
+            margin: 5px;
+        }
+
+        .s-0{
+            flex-shrink: 0;
+            flex-basis: 100px;
+        }
+
+        .s-2{
+            flex-shrink: 2;
+            flex-basis: 100px;
+        }
+
+        .s-3{
+            flex-shrink: 3;
+            flex-basis: 100px;
+        }
+
+        .s-1-b100{
+            flex-shrink: 1;
+            flex-basis: 100px;
+        }
+
+        .s-1{
+            flex-shrink: 1;
+        }
+
+        .fg-1{
+            flex-grow: 1;
+        }
+
+        
+    </style>
+
+</head>
+<body>
+    <p>shrink - 1</p>
+    <div class="flex-container">
+        <div class="items s-1 fg-1">A</div>
+        <div class="items s-1 fg-1">B</div>
+        <div class="items s-1 fg-1">C</div>
+        <div class="items s-1 fg-1">D</div>
+    </div>
+
+    <div class="flex-container">
+        <div class="items s-1 fg-1">A</div>
+        <div class="items s-1 fg-1">The generate Lorem Ipsum</div>
+        <div class="items s-1 fg-1">C</div>
+        <div class="items s-1 fg-1">D</div>
+    </div>
+
+    <p>shrink - 0 / basis - 100px</p>
+    <div class="flex-container">
+        <div class="items s-0 fg-1">A</div>
+        <div class="items s-0 fg-1">The generate</div>
+        <div class="items s-0 fg-1">C generate</div>
+        <div class="items s-0 fg-1">D</div>
+    </div>
+
+    <p>shrink - 1 / basis - 100px</p>
+    <div class="flex-container">
+        <div class="items s-1-b100 fg-1">A</div>
+        <div class="items s-1-b100 fg-1">The generate</div>
+        <div class="items s-1-b100 fg-1">C generate</div>
+        <div class="items s-1-b100 fg-1">D</div>
+    </div>
+
+    <p>shrink - mix / basis - 100px</p>
+    <div class="flex-container">
+        <div class="items s-1 fg-1">A</div>
+        <div class="items s-2 fg-1">The generate</div>
+        <div class="items s-2 fg-1">C</div>
+        <div class="items s-3 fg-1">D</div>
+    </div>
+</body>
+</html>

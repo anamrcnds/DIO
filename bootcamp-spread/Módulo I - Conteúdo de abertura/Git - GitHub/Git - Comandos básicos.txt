@@ -1,0 +1,162 @@
+
+echo 'conteudo' | git hash-object --stdin  --->> devolve o sha1 do conteudo
+
+echo -e 'conteudo' | openssl sha1  --->> devolve o sha1 (um novo sha1)
+
+
+
+1º objeto
+Blob - contem metadados do git: tipo do objeto, tamanho string, tamanho arquivo
+echo -e 'blob 9\0conteudo' | openssl sha1 --->> mostra o mesmo sha1 de: echo 'conteudo' | git hasj-object --stdin  --->> devolve o sha1 do conteudo. Guarda só o sha1 de um arquivo
+
+
+2º Trees - armazena e aponta para blobs diferentes além de commits
+Tbm contem metadados: blob, sha1 e nome do arquivo. 
+Pode apontar para blobs ou outras arvores. Quando algo muda em um arquivo, 
+mudando seu sha1, é mudado o sha1 do blob e da arvore. 
+
+
+3º Commit - aponta para arvore, aponta para um parente (commit anterior), 
+aponta para o autor e aponta para uma mensagem. Possui tbm um timestamp data hora
+que foi criado o commit e tbm possui encripatação sha1 de seus metadaddos.
+Se uma blob for alterado, seu sha1 sera alterado, alterando o sha1 da arvora que 
+aponta para ela, e o commit apontando para uma arvore tem seu sha1 alterado.
+
+
+### CHAVES SSH E TOKENS ###
+
+Para realizar um commit era necessario autenticação 
+via nome e senha. 
+
+12 de agosto de 2021 - além de nome e senha deve-se 
+realizar mais alguns processos para subir os commit 
+para o GitHub 
+
+
+CHAVE SSH - forma de estabelecer uma conexão segura e
+encriptada entre duas máquinas. Estabelecendo uma conexão 
+segura onde a nossa máquina local torna-se confiável.
+Há sempre uma chave pública e uma chave privada. 
+Informando a chave pública, o GitHub 
+vai reconhecer a máquina atraves de sua assinatura conexão prévia,
+o que configura a maquina eliminando uso da senha.
+
+A chave ssh fica em settings, no menu "ssh e GPG keys", 
+para inserir esta chave no GitHub deve-se criar primeiramente
+a chave no GitBash através dos seguintes comandos:
+
+ssh-keygen -t ed25519 -C "email@email"
+
+Navegando até a pasta onde as chaves foram guardadas:
+$ cd /c/Users/ana/.ssh
+
+$ ls
+id_ed25519  id_ed25519.pub (chave publica)
+
+cat id_ed25519.pub -->> ler o arquivo e pegar a chave que vai pro GitHub
+Retorno:
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBh0YkmqBadwE1ew5B2vRSDbEY7jo2NI4VahuvoiIN+7 
+
+
+APÓS INSERIR A CHAVE NO GITHUB, DEVE-SE INICIALIZAR O SSH AGENT
+
+eval $(ssh-agent -s)
+Agent pid 1571
+
+Validando a chave 
+
+$ ls                        --->> para ver os arquivos da pasta ssh
+id_ed25519  id_ed25519.pub
+$ ssh-add id_ed25519
+Enter passphrase for id_ed25519: (senha que colocou quando gerou a chave ssh q ia pro GitHub)
+Identity added: id_ed25519 (ana.marcondes01@fatec.sp.gov.br)
+
+
+### TOKEN DE ACESSO PESSOAL ###
+
+Settings > Developer settings > Personal access tokens 
+
+Obs: guardar o token em algum local pois esta informação apenas pode ser visualizada no momento 
+em que é gerada, se a página for recarregada o token gerado será perdido. 
+
+
+### INICIAR O GIT ###
+
+ - Iniciar o GIT 
+git init
+
+ - Iniciar o versionamento 
+git add
+
+ - Criar um commit 
+git commit
+
+
+
+git (nome do programa que está sendo chamado) init (nome do comando)
+
+
+git init (dentro do repositório que quer iniciar)
+inicializa um repositório no git dentro de uma pasta
+
+
+### CONFIGURANDO UM AUTOR PARA O REPOSITORIO ###
+
+git config --global user.email "email@email" 
+git config --global user.name user_name
+
+
+### ADICIONANDO UM ARQUIVO NA PASTA ###
+
+Adicionando um arquivo Markdown
+
+Arquivo Markdown - baseado nas tags de título HTML
+# Título nível 1
+## Título nível 2
+### Título nível 3
+#### Título nível 4
+##### Título nível 5
+###### Título nível 6 
+
+
+
+### CICLO DE VIDA DOS ARQUIVOS ### (Stack Overflow)
+
+untracked: o git não sabe nada a respeito do arquivo. Quer dizer, até sabe que ele existe,
+           mas não vai controlar seu ciclo de vida
+
+staged: os que estão no staging area/index/cache. São os que estarão no próximo commit
+
+modified: os que foram alterados, se comparados ao último commit
+
+unmodified: os que não foram alterados
+
+Segundo a documentação: ou o Git está controlando o ciclo de vida do seu arquivo (tracked) 
+ou não está (untracked). Sendo que um arquivo no estado tracked pode estar staged, modified 
+ou unmodified.
+
+
+git commit : Insere mudanças no repositório local
+git commit -m "mensagem de descrição da mudança que foi commited"
+
+git add : move os novos arquivos de maneira organizada para o proximo commit 
+	      staged / staging area - "arquivos em pré commit"
+
+git add nome_do_arquivo/pasta
+git add * - adiciona todas as modificações para a staging area
+
+git status - mostra se há arquivos na staging area ou se os arquivos sofrerem modificações
+			 relativas ao último commit 
+
+
+### APONTANDO PARA REPOSITÓRIO REMOTO ###
+$ git remote add origin https://github.com/username/primeiro-repositorio.git --->> repositório criado no GitHub
+
+### SUBINDO ARQUIVOS ##
+git push origin master
+
+### MODIFICANDO ORIGIN JÁ CONFIGURADO ###
+git remote set-url origin git@github.com:gitusername/repository.git
+
+### EXIBINDO REMOTE ORIGIN ATUAL ###
+git remote show origin
