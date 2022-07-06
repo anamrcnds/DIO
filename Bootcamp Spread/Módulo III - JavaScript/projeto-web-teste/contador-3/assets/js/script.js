@@ -10,6 +10,10 @@ function increment() {
     currentNumber = currentNumber + 1;
     currentNumberWrapper.innerHTML = currentNumber;
 
+    if(currentNumber >= 0){
+        currentNumberWrapper.style.color = "black";
+    }
+
     if(currentNumber == 10){
         btnAdd.disabled = true;
 
@@ -31,7 +35,11 @@ function increment() {
 function decrement(){
     currentNumber = currentNumber - 1;
     currentNumberWrapper.innerHTML = currentNumber;
-
+    
+    if(currentNumber < 0) {
+        currentNumberWrapper.style.color = "red";
+    }
+    
     if(currentNumber == -10){
         btnSub.disabled = true;
         
