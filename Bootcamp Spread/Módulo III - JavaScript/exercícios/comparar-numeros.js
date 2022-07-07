@@ -1,6 +1,6 @@
 let valida1, valida2, valida3;
 
-function comparaNumeros(num1, num2){
+function ComparaNumeros(num1, num2){
     valida1 = validaN1(num1);
     valida2 = validaN2(num2);
     valida3 = validaNulo(num1, num2);
