@@ -17,7 +17,7 @@ function replace (array) {
 
     let isEven = number => {
 
-        if (number % 2 === 0) {
+        if (Math.floor(number) % 2 === 0) {
             return number = 0;
         }
         return number;
@@ -27,4 +27,4 @@ function replace (array) {
     return array.map(isEven)
 }
 
-console.log(replace([2, 4, '15', 3, 10]));
+console.log(replace([2, 4, '14.8', 3, 10]))
