@@ -4,10 +4,10 @@ IMPEDINDO CARACTERES ESPECIAIS E ACEITANDO STRINGS COM ESPAÇOS */
 let eliminaEspacos = string => string.split(' ').join('');
 
 function verificaEspeciais(str) { 
-    let caracteres = '[a-zA-Z0-9]';
+    let caracteres = '[a-zA-Z]';
 
-    for(letra in str){
-        if(!str[letra].match(caracteres)){
+    for(letra of str){
+        if(!letra.match(caracteres)){
             return false;
         }
     }
@@ -33,7 +33,7 @@ function verificaPalindromo(string){
         return compara(frase);
     }
 
-    return "Sentença não pode conter caracteres especiais!";
+    return "Sentença não pode conter números e caracteres especiais!";
 }
 
-console.log(verificaPalindromo("b/alo"))
+console.log(verificaPalindromo("a3a"))

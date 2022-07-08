@@ -6,9 +6,9 @@ let eliminaEspacos = string => string.split(' ').join('');
 function verificaEspeciais(str) { 
     let caracteres = "!@#$%¨&*()-+[]`~^;':.,?|";
 
-    for(letra in str){
-        for(char in caracteres){
-            if(str[letra] === caracteres[char]){
+    for(letra of str){
+        for(char of caracteres){
+            if(letra === char){
                 return false;
             }
         }
@@ -38,4 +38,4 @@ function verificaPalindromo(string){
     return "Sentença não pode conter: !@#$%¨&*()-+[]`~^;:.,?/|";
 }
 
-console.log(verificaPalindromo("anak"))
+console.log(verificaPalindromo("ana"))
