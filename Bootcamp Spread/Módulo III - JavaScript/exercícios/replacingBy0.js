@@ -18,7 +18,9 @@ function replaceEvenNumber (array) {
 
     let isEven = number => {
 
-        if (Math.floor(number) % 2 === 0 && number > 0) {
+        let isEvenNumber = Math.floor(number) % 2 === 0 && number > 0;
+
+        if (isEvenNumber) {
             return number = 0;
         }
         return number;
