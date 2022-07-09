@@ -1,6 +1,6 @@
 // // Substituir números pares por 0 (valida e converte string numérica)
 
-function replace (array) {
+function replaceEvenNumber (array) {
     if(!array) return -1;
 
     let isNumber = (number, index, array) => {
@@ -17,7 +17,7 @@ function replace (array) {
 
     let isEven = number => {
 
-        if (Math.floor(number) % 2 === 0) {
+        if (Math.floor(number) % 2 === 0 && number > 0) {
             return number = 0;
         }
         return number;
@@ -27,4 +27,4 @@ function replace (array) {
     return array.map(isEven)
 }
 
-console.log(replace([2, 4, '14.8', 3, 10]))
+console.log(replaceEvenNumber([2, 4, '16.8', "$", 10]))
