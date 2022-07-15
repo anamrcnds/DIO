@@ -140,7 +140,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   function calcTempo(mil) {
     var min = Math.floor(mil / 60000);
     var sec = Math.floor(mil % 60000 / 1000);
-    return "".concat(mil, "m e ").concat(sec, "s");
+    return "".concat(min, "m e ").concat(sec, "s");
   }
 
   function patio() {
@@ -171,7 +171,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
           entrada = _ler$find.entrada,
           nome = _ler$find.nome;
 
-      var tempo = calcTempo(new Date().getTime() - entrada.getTime());
+      var tempo = calcTempo(new Date().getTime() - new Date(entrada).getTime());
       if (!confirm("O ve\xEDculo ".concat(nome, " permaneceu por ").concat(tempo, ". Deseja encerrar?"))) return;
       salvar(ler().filter(function (veiculo) {
         return veiculo.placa !== placa;
@@ -214,7 +214,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     patio().adicionar({
       nome: nome,
       placa: placa,
-      entrada: new Date()
+      entrada: new Date().toISOString()
     }, true);
   });
 })();
